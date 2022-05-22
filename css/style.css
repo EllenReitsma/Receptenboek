@@ -1,0 +1,28 @@
+.header {
+    margin: 2em auto;
+    width: 70%;
+    text-align: center;
+    border-style: solid;
+    border-width: 0 0 .2em 0;
+}
+.recept {
+    margin: auto;
+    width: 40%;
+    border-style: solid;
+    border-width: .1em;
+    border-radius: .5em;
+}
+.recept-img {
+    margin: 1em;
+    object-fit: cover;
+    height: 10em;
+    width: 10em;
+}
+.recept-img-div {
+    display: inline-block;
+    vertical-align: top;
+}
+.recept-text-div {
+    display: inline-block;
+    vertical-align: top;
+}
