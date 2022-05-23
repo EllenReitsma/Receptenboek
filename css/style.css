@@ -4,6 +4,7 @@
     text-align: center;
     border-style: solid;
     border-width: 0 0 .2em 0;
+    cursor: pointer;
 }
 .recept {
     margin: auto;
@@ -11,6 +12,7 @@
     border-style: solid;
     border-width: .1em;
     border-radius: .5em;
+    cursor: pointer;
 }
 .recept-img {
     margin: 1em;
