@@ -24,16 +24,16 @@
             <h3>Ingrediënten:</h3>
             <div class="personen">
                 <label>Personen:</label>
-                <input type="number" id="quantity" name="quantity" min="1" max="100" value="2">
+                <input type="number" id="quantity" name="quantity" min="1" max="100" value="2" onchange="onIngrAmountChange(event)">
             </div>
             <ul>
-                <li>4 hamburgerbroodjes</li>
-                <li>1 tomaat</li>
-                <li>8 plakjes bacon</li>
-                <li>halve ui</li>
-                <li>4 plakjes cheddar</li>
-                <li>4 hamburgers</li>
-                <li>sla</li>
+                <li><span class="ingr_amount">4</span> hamburgerbroodjes</li>
+                <li><span class="ingr_amount">4</span> hamburgers</li>
+                <li><span class="ingr_amount">0.5</span> tomaat</li>
+                <li><span class="ingr_amount">8</span> plakjes bacon</li>
+                <li><span class="ingr_amount">0.5</span> ui</li>
+                <li><span class="ingr_amount">4</span> plakjes cheddar</li>
+                <li><span class="ingr_amount"></span> sla</li>
             </ul>
         </div>
         <div class="bereiding">
@@ -43,7 +43,28 @@
                 <li>test</li>
             </ol>
         </div>
+        <script>
+            const default_persons = 2;
+            const default_ingredients = [4, 4, 0.5, 8, 0.5, 4, null];
 
+            // reset to defaults
+            const quantityEl = document.querySelector("#quantity");
+            quantityEl.value=default_persons;
+            setIngredientAmount(1);
+
+            function onIngrAmountChange(event) {
+                const factor = event.target.value / default_persons;
+                setIngredientAmount(factor);
+            }
+
+            function setIngredientAmount(factor) {
+                const ingrs = document.querySelectorAll(".ingr_amount");
+                for(let i = 0; i < ingrs.length; i++) {
+                    const default_ingr = default_ingredients[i];
+                    ingrs[i].textContent = default_ingr != null ? default_ingr * factor : "";
+                }
+            } 
+        </script>
     </body>
 
 </html>
